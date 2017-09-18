@@ -1,0 +1,100 @@
+.project-canvas {
+    padding: 40px 0;
+    .canvas {
+        display: table;
+        width: 100%;
+        height: 600px;
+        border: 1px solid gray;
+        @include respond-to("screen-xs") {
+            height: 420px;
+        }
+        .circle {
+            border: 1px dashed #eaeaea;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+        }
+        .rectangle {
+            border: 1px dashed #eaeaea;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+        .centered {
+            display: table-cell;
+            position: relative;
+            vertical-align: middle;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.8);
+            @include on-event {
+                background-color: rgba(0, 0, 0, 0.7);
+            }
+            p {
+                position: absolute;
+                width: 100%;
+                z-index: -9999;
+            }
+            img {
+                display: none;
+            }
+        }
+    }
+    .control-holder {
+        top: 10px;
+        left: 10px;
+        max-width: 60px;
+        ul {
+            position: relative;
+            bottom: 317px;
+            left: 10px;
+            padding: 0;
+            text-align: center;
+            display: inline-block;
+            li {
+                overflow: hidden;
+                background-color: #F4F4F4;
+                @include on-event {
+                    cursor: pointer;
+                    background-color: lightgray;
+                }
+            }
+        }
+    }
+}
+
+.project-thumbnail {
+    padding: 0 0 40px 0;
+    margin-top: -317px;
+    .uploaded-holder {
+        margin-bottom: 10px;
+        box-shadow: 2px 3px 15px gray;
+        .img-holder {
+            position: relative;
+            .overlay {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                transition: 0.3s;
+            }
+            img {
+                width: 100%;
+                height: 200px;
+            }
+        }
+        button {
+            width: 100%;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            &.openImg {
+                background-color: #ffa800;
+            }
+            &.closeImg {
+                background-color: #D08B06;
+                color: white;
+            }
+        }
+    }
+}

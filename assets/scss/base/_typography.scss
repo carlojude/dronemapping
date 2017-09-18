@@ -1,0 +1,36 @@
+body {
+    font-family: $text-font-stack;
+    line-height: 20px;
+}
+
+.title {
+    text-align: center;
+    margin-top: 0;
+    font-weight: 600;
+    @include respond-to("screen-xs") {
+        font-size: 24px;
+    }
+}
+
+.title-content {
+    text-align: center;
+    font-weight: 300;
+    color: #656565;
+    @include respond-to("screen-xs") {
+        font-size: 14px;
+    }
+}
+
+.inner-title {
+    font-weight: 400;
+    @include respond-to("screen-xs") {
+        font-size: 22px;
+    }
+}
+
+.inner-content {
+    font-weight: 300;
+    @include respond-to("screen-xs") {
+        font-size: 14px;
+    }
+}

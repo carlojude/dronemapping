@@ -1,0 +1,67 @@
+header {
+    li.active {
+        color: #ffa800;
+    }
+    .offcanvas.in {
+        width: 50%;
+        background-color: #424242;
+        ul {
+            padding: 0;
+            list-style: none;
+            li {
+                &:first-of-type {
+                    padding: 40px 0;
+                }
+                &.active {
+                    a {
+                        color: #ffa800;
+                    }
+                }
+                padding: 15px 0;
+                @include on-event {
+                    background-color: black;
+                    color: #ffa800;
+                }
+                a {
+                    font-size: 17px;
+                    color: white;
+                    @include on-event {
+                        text-decoration: none;
+                        color: #ffa800;
+                    }
+                    @include respond-to("screen-xs") {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+    .navbar {
+        .navbar-toggle {
+            .icon-bar {
+                background-color: #ffa800;
+            }
+        }
+        ul {
+            li {
+                &.sign-up {
+                    background-color: #ffa800;
+                    border-radius: 10px;
+                }
+                &.active {
+                    a {
+                        color: #ffa800;
+                    }
+                }
+                a {
+                    color: black;
+                    transition: 0.3s ease-in-out;
+                    @include on-event {
+                        background-color: white;
+                        color: #ffa800;
+                    }
+                }
+            }
+        }
+    }
+}

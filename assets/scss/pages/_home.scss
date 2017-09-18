@@ -1,0 +1,95 @@
+.home-intro {
+    padding: 30px 0;
+    background-image: url('../img/home/map.png');
+    background-repeat: repeat;
+    // background-position: center;
+    background-size: contain;
+    .canvas {
+        position: relative;
+        top: 70px;
+        border: 1px solid #C7C7C7;
+        height: 500px;
+        width: 100%;
+        background-color: #212121;
+    }
+}
+
+.home-how-it-works {
+    padding: 80px 0 50px 0;
+    .title {
+        margin-bottom: 50px;
+    }
+    .icon-holder {
+        &:before {
+            font-family: $text-fontawesome;
+            content: '\f054';
+            position: absolute;
+            right: 0;
+            top: 28px;
+            color: #EBEBEB;
+            font-size: 33px;
+            @include respond-to("screen-xs") {
+                content: '';
+            }
+        }
+        img {
+            padding: 7px;
+            height: 80px;
+            border: 2px solid #ffa800;
+            border-radius: 50%;
+        }
+    }
+    .icon-holder-last {
+        &:before {
+            content: '';
+        }
+        img {
+            padding: 10px;
+            height: 80px;
+            border: 2px solid #ffa800;
+            border-radius: 50%;
+        }
+    }
+}
+
+.home-carousel-holder {
+    padding: 50px 0;
+    background-color: #F5F5F5;
+    text-align: center;
+    .title-content {
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+    .owl-carousel {
+        div {
+            img {
+                padding: 0 10px;
+            }
+        }
+    }
+}
+
+.home-industry {
+    padding: 50px 0;
+    // background-color: #F2F2F2;
+    .title-content {
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+    .icons {
+        img {
+            margin-right: 10px;
+            height: 40px;
+            display: inline-block;
+        }
+        h3 {
+            display: inline-block;
+        }
+        p {
+            display: inline-block;
+            vertical-align: top;
+            padding-left: 58px;
+            font-weight: 300;
+        }
+    }
+}
