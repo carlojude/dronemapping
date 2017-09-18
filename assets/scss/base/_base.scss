@@ -5,3 +5,35 @@
 .title-content {
     font-size: 18px;
 }
+
+a {
+    &:focus {
+        outline: none !important;
+    }
+}
+
+.contact-title {
+    font-weight: 300;
+}
+
+.contact-us-holder {
+    input,
+    select {
+        height: 40px;
+        font-family: $text-font-stack;
+        border: 1px solid #D3D3D3;
+        border-radius: 10px !important;
+    }
+    input,
+    textarea {
+        border: 1px solid #D3D3D3;
+        border-radius: 10px !important;
+        @include input-placeholder {
+            font-size: 16px;
+            color: #DBDBDB;
+        }
+    }
+    select {
+        font-size: 16px;
+    }
+}

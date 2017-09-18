@@ -8723,6 +8723,47 @@ button.close {
 .title-content {
   font-size: 18px; }
 
+a:focus {
+  outline: none !important; }
+
+.contact-title {
+  font-weight: 300; }
+
+.contact-us-holder input,
+.contact-us-holder select {
+  height: 40px;
+  font-family: "Open Sans", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  border: 1px solid #D3D3D3;
+  border-radius: 10px !important; }
+
+.contact-us-holder input,
+.contact-us-holder textarea {
+  border: 1px solid #D3D3D3;
+  border-radius: 10px !important; }
+  .contact-us-holder input.placeholder,
+  .contact-us-holder textarea.placeholder {
+    font-size: 16px;
+    color: #DBDBDB; }
+  .contact-us-holder input:-moz-placeholder,
+  .contact-us-holder textarea:-moz-placeholder {
+    font-size: 16px;
+    color: #DBDBDB; }
+  .contact-us-holder input::-moz-placeholder,
+  .contact-us-holder textarea::-moz-placeholder {
+    font-size: 16px;
+    color: #DBDBDB; }
+  .contact-us-holder input:-ms-input-placeholder,
+  .contact-us-holder textarea:-ms-input-placeholder {
+    font-size: 16px;
+    color: #DBDBDB; }
+  .contact-us-holder input::-webkit-input-placeholder,
+  .contact-us-holder textarea::-webkit-input-placeholder {
+    font-size: 16px;
+    color: #DBDBDB; }
+
+.contact-us-holder select {
+  font-size: 16px; }
+
 @font-face {
   font-family: "Font Awesome";
   src: url("../fonts/font-awesome.eot");
@@ -8802,20 +8843,43 @@ header .offcanvas.in {
 header .navbar .navbar-toggle .icon-bar {
   background-color: #ffa800; }
 
-header .navbar ul li.sign-up {
-  background-color: #ffa800;
-  border-radius: 10px; }
-
-header .navbar ul li.active a {
-  color: #ffa800; }
-
 header .navbar ul li a {
-  color: black;
+  color: #A5A5A5;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out; }
   header .navbar ul li a:hover, header .navbar ul li a:active, header .navbar ul li a:focus {
     background-color: white;
     color: #ffa800; }
+
+header .navbar ul li.sign-up {
+  background-color: #ffa800;
+  border-radius: 10px; }
+  header .navbar ul li.sign-up a {
+    color: black; }
+
+header .navbar ul li.log-in a {
+  color: black; }
+
+header .navbar ul li.active a {
+  color: #ffa800; }
+
+header form .modal .modal-dialog {
+  display: table; }
+  header form .modal .modal-dialog .modal-content {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 40px 115px;
+    height: 70vh; }
+    @media screen and (max-width: 767px) {
+      header form .modal .modal-dialog .modal-content {
+        padding: 5px 5px; } }
+    header form .modal .modal-dialog .modal-content .input-group {
+      margin: auto; }
+      header form .modal .modal-dialog .modal-content .input-group input {
+        margin-bottom: 10px; }
+    header form .modal .modal-dialog .modal-content .login {
+      margin-top: 10px;
+      background-color: #ffa800; }
 
 footer {
   padding: 20px 0 0 0;
@@ -8876,6 +8940,9 @@ footer {
     height: 100%;
     width: 100%;
     text-align: center; }
+
+button:focus {
+  outline: none !important; }
 
 .uploadBtn {
   margin-bottom: 20px;
@@ -9034,3 +9101,33 @@ footer {
       .project-thumbnail .uploaded-holder button.closeImg {
         background-color: #D08B06;
         color: white; }
+
+.contact-us-holder {
+  padding: 40px 0; }
+  .contact-us-holder .left-holder form {
+    text-align: left; }
+    .contact-us-holder .left-holder form .input-group {
+      display: block;
+      padding: 20px 0; }
+      .contact-us-holder .left-holder form .input-group .lname {
+        padding-left: 5px; }
+        @media screen and (max-width: 767px) {
+          .contact-us-holder .left-holder form .input-group .lname {
+            padding-left: 0;
+            margin-top: 10px; } }
+      .contact-us-holder .left-holder form .input-group textarea {
+        margin-top: 15px;
+        min-height: 300px; }
+    .contact-us-holder .left-holder form .contactUs {
+      margin-top: 20px;
+      border-radius: 4px !important;
+      background-color: #ffa800; }
+  .contact-us-holder .right-holder {
+    background-color: rgba(255, 168, 0, 0.4);
+    border-radius: 6px; }
+    @media screen and (max-width: 767px) {
+      .contact-us-holder .right-holder {
+        margin-top: 40px;
+        text-align: center; } }
+    .contact-us-holder .right-holder .right-content {
+      padding: 20px; }

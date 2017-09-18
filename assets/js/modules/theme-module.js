@@ -98,6 +98,7 @@ AppName.Modules.ThemeModule = (function() {
     }
 
     var useImage = function() {
+
         $('#useImg1').click(function() {
             $('#drag1').fadeIn();
             $('#drag1').addClass('zoom');
@@ -118,8 +119,12 @@ AppName.Modules.ThemeModule = (function() {
             $('.overlay').css({
                 "background-color": "transparent"
             });
-            document.querySelector('img').dispatchEvent(new CustomEvent('wheelzoom.destroy'));
 
+
+            $('.canvas').removeAttr('id');
+
+            $('.rectangle').remove();
+            $('.circle').remove();
             $('#useImg1').toggleClass('hidden');
             $('#hideImg1').toggleClass('hidden');
         });
@@ -133,6 +138,8 @@ AppName.Modules.ThemeModule = (function() {
                 "background-color": "transparent"
             });
             document.querySelector('img').dispatchEvent(new CustomEvent('wheelzoom.destroy'));
+
+            $('.canvas').removeAttr('id');
 
             $('.rectangle').remove();
             $('.circle').remove();

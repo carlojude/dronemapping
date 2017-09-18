@@ -5,18 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Project</title>
+    <title>Home</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
 <body>
-    <div class="se-pre-con">
-        <div class="centered">
-            <img src="assets/img/preloader.gif" alt="">
-        </div>
-    </div>
     <header class="header">
         <div class="container">
             <nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
@@ -24,112 +19,124 @@
                     <li>BRAND</li>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="#">About</a></li>
-                    <li class="active"><a href="project.html">Project</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
             </nav>
 
             <div class="navbar">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="offcanvas" data-target="#myNavmenu" aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                          </button>
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
                 <a class="navbar-brand" href="#">08502</a>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="index.html">HOME<span class="sr-only">(current)</span></a></li>
                         <li><a href="#">ABOUT</a></li>
-                        <li class="active"><a href="project.html">PROJECT</a></li>
-                        <li><a href="#">CONTACT US</a></li>
+                        <li class="active"><a href="#">CONTACT US</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="user"><a href="#">User</a></li>
+                        <li class="sign-up"><a href="#">Sign Up</a></li>
+                        <li class="log-in"><a href="#" data-toggle="modal" data-target=".bs-example-modal">Log In</a></li>
                     </ul>
                 </div>
             </div>
         </div>
+        <form method="POST" action="">
+            <div class="modal fade bs-example-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <h3 class="text-center no-margin-head">Login</h3>
+                        <div class="input-group">
+                            <input class="form-control" type="email" name="email" id="email" placeholder="Email">
+                            <input class="form-control" type="pass" name="pass" id="pass" placeholder="Password">
+                        </div>
+                        <a href="#">Don't have an account?</a>
+                        <a href="#">Forgot Password?</a>
+                        <input type="submit" class="btn form-control login" name="login" value="Login">
+                    </div>
+                </div>
+            </div>
+        </form>
     </header>
 
-    <section class="project-canvas">
+    <section class="contact-us-holder">
         <div class="container">
-            <div class="canvas" ondrop="drop(event)" ondragover="allowDrop(event)">
-                <div class="centered">
-                    <!-- <p>Drag image here to start</p> -->
-                    <p>Image will appear here</p>
-                    <img src="assets/img/home/1.jpg" id="drag1">
+            <div class="row">
+                <div class="col-sm-8 col-xs-12 item-mh">
+                    <div class="left-holder">
+                        <div class="left-content text-center">
+                            <h1 class="contact-title no-margin-head">Lorem Ipsum.</h1>
+                            <p class="title-content">Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
 
+                            <form method="POST" action="">
+                                <div class="input-group">
+                                    <h3>Name</h3>
+                                    <div class="col-sm-6 col-xs-12 no-padding">
+                                        <input type="text" class="form-control" name="fname" placeholder="First Name">
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12 no-padding lname">
+                                        <input type="text" class="form-control" name="lname" placeholder="Last Name">
+                                    </div>
+                                </div>
+
+                                <div class="input-group">
+                                    <h3>Email</h3>
+                                    <input type="text" class="form-control" name="fname" placeholder="Email">
+                                </div>
+
+                                <div class="input-group">
+                                    <h3>Industry</h3>
+                                    <select class="form-control">
+                                        <option value="agriculture">Please select your industry..</option>
+                                        <option value="agriculture">Agriculture</option>
+                                        <option value="agriculture">Constrruction</option>
+                                        <option value="agriculture">Surveying/Mapping</option>
+                                        <option value="agriculture">Commercial/Drone Service Provider</option>
+                                        <option value="agriculture">Enthusiast/Hobby</option>
+                                        <option value="agriculture">Other</option>
+
+                                    </select>
+                                </div>
+
+                                <div class="input-group">
+                                    <textarea class="form-control" placeholder="How may we help you?"></textarea>
+                                </div>
+                                <input type="submit" class="btn form-control contactUs" name="contactUs" value="Contact Us">
+                            </form>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="control-holder">
-                <ul class="list-group">
-                    <li class="list-group-item" id="zoomIn" role="button" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><i class="fa fa-plus" aria-hidden="true"></i></li>
-                    <li class="list-group-item"><i class="fa fa-minus" aria-hidden="true"></i></li>
-                    <li class="list-group-item" id="square"><i class="fa fa-square" aria-hidden="true"></i></li>
-                    <li class="list-group-item" id="circle"><i class="fa fa-circle"></i></li>
-                    <li class="list-group-item" id="removeBox"><i class="fa fa-trash-o" aria-hidden="true"></i></li>
-                </ul>
 
-                <ul class="list-group bottom-list">
-                    <li class="list-group-item"><i class="fa fa-floppy-o" aria-hidden="true"></i></li>
-                    <li class="list-group-item" id="closeImg"><i class="fa fa-times" aria-hidden="true"></i></li>
-                </ul>
-            </div>
-        </div>
+                <div class="col-sm-4 col-xs-12 item-mh">
+                    <div class="right-holder">
+                        <div class="right-content">
+                            <h4 class="inner-title">Lorem Ipsum</h4>
+                            <p class="inner-content">Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
 
-        <!-- <div class="canvas" id="canvas" style="width: 700px; height: 700px; border: 1px solid black;"></div> -->
-    </section>
+                            <h4 class="inner-title">Ut enim ad </h4>
+                            <p class="inner-content">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 
-    <section class="project-thumbnail">
-        <div class="container">
-            <div class="upload-file-holder">
-                <div class="row no-margin">
-                    <div class="col-xs-12">
-                        <div class="uploadBtn-holder">
-                            <button class="uploadBtn">Upload Image</button>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="uploaded-holder text-center">
-                            <div class="img-holder">
-                                <div class="overlay"></div>
-                                <img src="assets/img/home/1.jpg" draggable="true" ondragstart="drag(event)" id="drag1-thumb">
+
+                            <div class="contact text-center">
+                                <i class="fa fa-phone"></i>
+                                <p>+639 000 0000 000</p>
                             </div>
-                            <button type="button" class="btn openImg" id="useImg1">Open</button>
-                            <button type="button" class="btn hidden closeImg" id="hideImg1">Close</button>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="uploaded-holder">
-                            <div class="img-holder">
-                                <div class=""></div>
-                                <img src="assets/img/home/2.jpg" draggable="true" ondragstart="drag(event)" id="drag2-thumb">
+                            <div class="email text-center">
+                                <i class="fa fa-envelope"></i>
+                                <p>lorem@ipsum.com</p>
                             </div>
-                            <button type="button" class="btn openImg" id="useImg2">Open</button>
-                            <button type="button" class="btn hidden closeImg" id="hideImg2">Close</button>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="uploaded-holder">
-                            <div class="img-holder">
-                                <img src="assets/img/home/3.jpg" draggable="true" ondragstart="drag(event)" id="drag3">
-                                <button type="button" class="btn openImg" id="useImg3">Open</button>
-                                <button type="button" class="btn closeImg hidden" id="hideImg3">x</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="uploaded-holder">
-                            <div class="img-holder">
-                                <img src="assets/img/home/4.jpg" draggable="true" ondragstart="drag(event)" id="drag4">
-                                <button type="button" class="btn openImg" id="useImg4">Open</button>
-                                <button type="button" class="btn closeImg hidden" id="hideImg4">x</button>
+                            <div class="address text-center">
+                                <i class="fa fa-map-marker"></i>
+                                <p>Holy Angel University, Sto. Rosario St. Angeles City, Philippines</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -217,35 +224,22 @@
                 <p><i class="fa fa-copyright"></i> Copyright. 08502. All Rights Reserved.</p>
             </div>
         </div>
-
     </footer>
 
     <script src="assets/js/vendors/jquery.min.js"></script>
     <script src="assets/js/vendors/jquery11.js"></script>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
     <script src="assets/js/vendors/bootstrap.min.js"></script>
     <script src="assets/js/core/base.js"></script>
-    <script src="assets/js/vendors/wheelzoom.js"></script>
     <script src="assets/js/modules/theme-module.js"></script>
     <script src="assets/js/bootstrapper.js"></script>
-    <script src="assets/js/vendors/owl-carousel.js"></script>
     <script src="assets/js/vendors/jasny-bootstrap.min.js"></script>
-    <script src="assets/js/vendors/shape.js"></script>
-    <!-- <script>
-        function allowDrop(ev) {
-            ev.preventDefault();
-        }
-
-        function drag(ev) {
-            ev.dataTransfer.setData("text", ev.target.id);
-        }
-
-        function drop(ev) {
-            ev.preventDefault();
-            var data = ev.dataTransfer.getData("text");
-            ev.target.appendChild(document.getElementById(data));
-        }
+    <!-- <script src="assets/js/vendors/jquery.matchHeight.js"></script>
+    <script>
+        $(function() {
+            $('.item-mh').matchHeight();
+        });
     </script> -->
+
 </body>
 
 </html>

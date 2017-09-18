@@ -44,21 +44,55 @@ header {
         }
         ul {
             li {
+                a {
+                    color: #A5A5A5;
+                    transition: 0.3s ease-in-out;
+                    @include on-event {
+                        background-color: white;
+                        color: #ffa800;
+                    }
+                }
                 &.sign-up {
+                    a {
+                        color: black;
+                    }
                     background-color: #ffa800;
                     border-radius: 10px;
+                }
+                &.log-in {
+                    a {
+                        color: black
+                    }
                 }
                 &.active {
                     a {
                         color: #ffa800;
                     }
                 }
-                a {
-                    color: black;
-                    transition: 0.3s ease-in-out;
-                    @include on-event {
-                        background-color: white;
-                        color: #ffa800;
+            }
+        }
+    }
+    form {
+        .modal {
+            .modal-dialog {
+                display: table;
+                .modal-content {
+                    display: table-cell;
+                    vertical-align: middle;
+                    padding: 40px 115px;
+                    height: 70vh;
+                    @include respond-to("screen-xs") {
+                        padding: 5px 5px;
+                    }
+                    .input-group {
+                        margin: auto;
+                        input {
+                            margin-bottom: 10px;
+                        }
+                    }
+                    .login {
+                        margin-top: 10px;
+                        background-color: #ffa800;
                     }
                 }
             }

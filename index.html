@@ -19,7 +19,7 @@
                     <li>BRAND</li>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
 
@@ -35,16 +35,34 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">HOME<span class="sr-only">(current)</span></a></li>
                         <li><a href="#">ABOUT</a></li>
-                        <li><a href="#">CONTACT US</a></li>
+                        <li><a href="contact.html">CONTACT US</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="sign-up"><a href="#">Sign Up</a></li>
-                        <li><a href="#">Log In</a></li>
+                        <li class="log-in"><a href="#" data-toggle="modal" data-target=".bs-example-modal">Log In</a></li>
                     </ul>
                 </div>
             </div>
         </div>
+        <form method="POST" action="">
+            <div class="modal fade bs-example-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <h3 class="text-center">Login</h3>
+                        <div class="input-group">
+                            <input class="form-control" type="email" name="email" id="email" placeholder="Email">
+                            <input class="form-control" type="pass" name="pass" id="pass" placeholder="Password">
+                        </div>
+                        <a href="#">Don't have an account?</a>
+                        <a href="#">Forgot Password?</a>
+                        <input type="submit" class="btn form-control login" name="login" value="Login">
+                    </div>
+                </div>
+            </div>
+        </form>
     </header>
+
+
 
     <section class="home-intro">
         <div class="container text-center">
@@ -221,7 +239,7 @@
     </footer>
 
     <script src="assets/js/vendors/jquery.min.js"></script>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+    <script src="assets/js/vendors/jquery11.js"></script>
     <script src="assets/js/vendors/bootstrap.min.js"></script>
     <script src="assets/js/core/base.js"></script>
     <script src="assets/js/modules/theme-module.js"></script>

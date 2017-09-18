@@ -6,9 +6,14 @@
 </head>
 <body>
 	<img class='zoom' src='daisy.jpg' alt='Daisy!' width='555' height='320'/>
+	<button id="remove"></button>
 	<script src="wheelzoom.js"></script>
 	<script>
 		wheelzoom(document.querySelector('img.zoom'));
+
+		$('#remove').click(function(){
+			document.querySelector('img.zoom').dispatchEvent(new CustomEvent('wheelzoom.destroy'));
+		});
 	</script>
 </body>
 </html>

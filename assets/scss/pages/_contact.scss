@@ -1,0 +1,39 @@
+.contact-us-holder {
+    padding: 40px 0;
+    .left-holder {
+        form {
+            text-align: left;
+            .input-group {
+                display: block;
+                padding: 20px 0;
+                .lname {
+                    padding-left: 5px;
+                    @include respond-to("screen-xs") {
+                        padding-left: 0;
+                        margin-top: 10px;
+                    }
+                }
+                textarea {
+                    margin-top: 15px;
+                    min-height: 300px;
+                }
+            }
+            .contactUs {
+                margin-top: 20px;
+                border-radius: 4px !important;
+                background-color: #ffa800;
+            }
+        }
+    }
+    .right-holder {
+        background-color: rgba(255, 168, 0, 0.4);
+        border-radius: 6px;
+        @include respond-to("screen-xs") {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .right-content {
+            padding: 20px;
+        }
+    }
+}
