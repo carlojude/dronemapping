@@ -11,6 +11,41 @@
         height: 500px;
         width: 100%;
         background-color: #212121;
+        .circle {
+            border: 1px dashed #eaeaea;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+        }
+        .rectangle {
+            border: 1px dashed #eaeaea;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .control-holder {
+        position: relative;
+        margin-top: -330px;
+        top: 10px;
+        left: 10px;
+        max-width: 60px;
+        ul {
+            padding: 0;
+            text-align: center;
+            display: inline-block;
+            li {
+                overflow: hidden;
+                background-color: #F4F4F4;
+                @include on-event {
+                    cursor: pointer;
+                    background-color: lightgray;
+                }
+            }
+        }
     }
 }
 

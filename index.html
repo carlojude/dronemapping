@@ -69,7 +69,18 @@
             <h1 class="title">The Software Platform for Drone Mapping</h1>
             <p class="title-content">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
 
-            <canvas class="canvas"></canvas>
+            <div class="canvas" id="canvas">
+                <img class="zoom" src="assets/img/home/4.jpg" id="drag1">
+            </div>
+            <div class="control-holder">
+                <ul class="list-group">
+                    <li class="list-group-item" id="zoomIn" role="button" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><i class="fa fa-plus" aria-hidden="true"></i></li>
+                    <li class="list-group-item"><i class="fa fa-minus" aria-hidden="true"></i></li>
+                    <li class="list-group-item" id="square"><i class="fa fa-square" aria-hidden="true"></i></li>
+                    <li class="list-group-item" id="circle"><i class="fa fa-circle"></i></li>
+                    <li class="list-group-item" id="removeBox"><i class="fa fa-trash-o" aria-hidden="true"></i></li>
+                </ul>
+            </div>
         </div>
     </section>
 
@@ -246,6 +257,11 @@
     <script src="assets/js/bootstrapper.js"></script>
     <script src="assets/js/vendors/owl-carousel.js"></script>
     <script src="assets/js/vendors/jasny-bootstrap.min.js"></script>
+    <script src="assets/js/vendors/wheelzoom.js"></script>
+    <script src="assets/js/vendors/shape.js"></script>
+    <script>
+        wheelzoom(document.querySelector('img.zoom'));
+    </script>
 </body>
 
 </html>

@@ -17,6 +17,13 @@
                     margin-top: 15px;
                     min-height: 300px;
                 }
+                select {
+                    option {
+                        &:first-child {
+                            color: #DBDBDB;
+                        }
+                    }
+                }
             }
             .contactUs {
                 margin-top: 20px;

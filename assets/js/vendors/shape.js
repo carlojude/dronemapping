@@ -1,7 +1,5 @@
 initDraw(document.getElementById('canvas'));
 
-
-
 function initDraw(canvas) {
     function setMousePosition(e) {
         var ev = e || window.event; //Moz || IE
@@ -41,6 +39,7 @@ function initDraw(canvas) {
             console.log("begun.");
             mouse.startX = mouse.x;
             mouse.startY = mouse.y;
+            z
             element = document.createElement('div');
             element.className = 'rectangle'
             element.style.left = mouse.x + 'px';
