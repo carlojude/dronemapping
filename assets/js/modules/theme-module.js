@@ -120,7 +120,6 @@ AppName.Modules.ThemeModule = (function() {
                 "background-color": "transparent"
             });
 
-
             $('.canvas').removeAttr('id');
 
             $('.rectangle').remove();

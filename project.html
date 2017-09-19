@@ -65,7 +65,7 @@
             <div class="control-holder">
                 <ul class="list-group">
                     <li class="list-group-item" id="zoomIn" role="button" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><i class="fa fa-plus" aria-hidden="true"></i></li>
-                    <li class="list-group-item"><i class="fa fa-minus" aria-hidden="true"></i></li>
+                    <li class="list-group-item" onclick="document.querySelector('img.zoom').dispatchEvent(new CustomEvent('wheelzoom.reset'));"><i class="fa fa-minus" aria-hidden="true"></i></li>
                     <li class="list-group-item" id="square"><i class="fa fa-square" aria-hidden="true"></i></li>
                     <li class="list-group-item" id="circle"><i class="fa fa-circle"></i></li>
                     <li class="list-group-item" id="removeBox"><i class="fa fa-trash-o" aria-hidden="true"></i></li>
@@ -73,7 +73,7 @@
 
                 <ul class="list-group bottom-list">
                     <li class="list-group-item"><i class="fa fa-floppy-o" aria-hidden="true"></i></li>
-                    <li class="list-group-item" id="closeImg"><i class="fa fa-times" aria-hidden="true"></i></li>
+                    <li class="list-group-item" onclick="document.querySelector('img.zoom').dispatchEvent(new CustomEvent('wheelzoom.destroy'));" id="closeImg"><i class="fa fa-times" aria-hidden="true"></i></li>
                 </ul>
             </div>
         </div>
@@ -97,7 +97,7 @@
                                 <img src="assets/img/home/1.jpg" draggable="true" ondragstart="drag(event)" id="drag1-thumb">
                             </div>
                             <button type="button" class="btn openImg" id="useImg1">Open</button>
-                            <button type="button" class="btn hidden closeImg" id="hideImg1">Close</button>
+                            <button type="button" class="btn hidden closeImg" id="hideImg1" onclick="document.querySelector('img.zoom').dispatchEvent(new CustomEvent('wheelzoom.destroy'));">Close</button>
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6 col-xs-12">

@@ -3,12 +3,20 @@ initDraw(document.getElementById('canvas'));
 function initDraw(canvas) {
     function setMousePosition(e) {
         var ev = e || window.event; //Moz || IE
+        var obj = document.getElementById('canvas');
         if (ev.pageX) { //Moz
             mouse.x = ev.pageX + window.pageXOffset;
             mouse.y = ev.pageY + window.pageYOffset;
         } else if (ev.clientX) { //IE
             mouse.x = ev.clientX + document.body.scrollLeft;
             mouse.y = ev.clientY + document.body.scrollTop;
+        }
+
+        if (obj.offsetParent) {
+            do {
+                mouse.startY += obj.offsetLeft;
+                mouse.startY += obj.offsetTop;
+            } while (obj = obj.offsetParent);
         }
     };
 
@@ -20,15 +28,15 @@ function initDraw(canvas) {
     };
     var element = null;
 
-    canvas.onmousemove = function(e) {
-        setMousePosition(e);
-        if (element !== null) {
-            element.style.width = Math.abs(mouse.x - mouse.startX) + 'px';
-            element.style.height = Math.abs(mouse.y - mouse.startY) + 'px';
-            element.style.left = (mouse.x - mouse.startX < 0) ? mouse.x + 'px' : mouse.startX + 'px';
-            element.style.top = (mouse.y - mouse.startY < 0) ? mouse.y + 'px' : mouse.startY + 'px';
-        }
-    }
+    // canvas.onmousemove = function(e) {
+    //     setMousePosition(e);
+    //     if (element !== null) {
+    //         element.style.width = Math.abs(mouse.x - mouse.startX) + 'px';
+    //         element.style.height = Math.abs(mouse.y - mouse.startY) + 'px';
+    //         element.style.left = (mouse.x - mouse.startX < 0) ? mouse.x + 'px' : mouse.startX + 'px';
+    //         element.style.top = (mouse.y - mouse.startY < 0) ? mouse.y + 'px' : mouse.startY + 'px';
+    //     }
+    // }
 
     canvas.onclick = function(e) {
         if (element !== null) {
@@ -39,7 +47,6 @@ function initDraw(canvas) {
             console.log("begun.");
             mouse.startX = mouse.x;
             mouse.startY = mouse.y;
-            z
             element = document.createElement('div');
             element.className = 'rectangle'
             element.style.left = mouse.x + 'px';

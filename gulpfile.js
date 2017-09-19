@@ -50,4 +50,4 @@ gulp.task('watch', function() {
     gulp.watch('./*.html', ['html']);
 });
 
-gulp.task('default', ['scripts', 'stylesheet', 'html', 'browser-sync', 'watch']);
+gulp.task('default', ['stylesheet', 'html', 'browser-sync', 'watch']);
