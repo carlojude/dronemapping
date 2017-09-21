@@ -282,6 +282,7 @@ AppName.Modules.ThemeModule = (function() {
     // Public Methods //
     ///////////////////
     var init = function() {
+        matchHeight();
         screenLoader();
         owlCarouselBottom();
         useImage();

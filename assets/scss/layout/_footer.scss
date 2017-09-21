@@ -18,7 +18,7 @@ footer {
     .footer-title {
         padding-left: 40px;
         font-size: 15px;
-        color: #CBCBCB;
+        color: white;
         @include respond-to("screen-xs") {
             padding-left: 0;
         }
@@ -52,6 +52,6 @@ footer {
         }
     }
     @include respond-to("screen-xs") {
-        text-align: center;
+        // text-align: center;
     }
 }
