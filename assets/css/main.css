@@ -9238,13 +9238,13 @@ button:focus {
       top: 45px;
       z-index: 9;
       color: #cecece;
-      font-size: 14px;
+      font-size: 18px;
       font-weight: 200;
       -webkit-transition: 0.3s ease-in-out;
       transition: 0.3s ease-in-out; }
-    @media screen and (max-width: 767px) {
-      .signup .holder form {
-        font-size: 13px; } }
+      @media screen and (max-width: 767px) {
+        .signup .holder form label {
+          font-size: 13px; } }
     .signup .holder form input.form-control {
       margin-top: 40px;
       padding: 0;
