@@ -34,3 +34,27 @@ body {
         font-size: 14px;
     }
 }
+
+.title-signup {
+    font-weight: 400;
+    font-size: 24px;
+    color: #656565;
+    @include respond-to("screen-xs") {
+        text-align: center;
+        font-size: 18px;
+    }
+}
+
+.inner-content-signup {
+    font-weight: 200;
+    font-size: 18px;
+    color: #656565;
+    @include respond-to("screen-xs") {
+        text-align: center;
+        font-size: 13px;
+    }
+    @include respond-to("screen-sm") {
+        text-align: left;
+        font-size: 16px;
+    }
+}

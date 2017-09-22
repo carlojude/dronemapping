@@ -8803,6 +8803,28 @@ body {
     .inner-content {
       font-size: 14px; } }
 
+.title-signup {
+  font-weight: 400;
+  font-size: 24px;
+  color: #656565; }
+  @media screen and (max-width: 767px) {
+    .title-signup {
+      text-align: center;
+      font-size: 18px; } }
+
+.inner-content-signup {
+  font-weight: 200;
+  font-size: 18px;
+  color: #656565; }
+  @media screen and (max-width: 767px) {
+    .inner-content-signup {
+      text-align: center;
+      font-size: 13px; } }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .inner-content-signup {
+      text-align: left;
+      font-size: 16px; } }
+
 .no-margin {
   margin: 0; }
 
@@ -8824,6 +8846,14 @@ body {
     width: 100%;
     height: 100%;
     vertical-align: middle; }
+
+.input-group {
+  display: block !important; }
+  .input-group input.form-control,
+  .input-group select {
+    outline: none;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important; }
 
 header li.active {
   color: #ffa800; }
@@ -8895,6 +8925,8 @@ header form .modal .modal-dialog {
       background-color: #ffa800; }
 
 footer {
+  position: relative;
+  bottom: 0;
   padding: 20px 0 0 0;
   background-color: #313131; }
   footer a {
@@ -8961,6 +8993,15 @@ button:focus {
   border: none;
   -webkit-box-shadow: 0 2px 10px gray;
           box-shadow: 0 2px 10px gray; }
+
+.login-signup {
+  background-color: #ffa800;
+  border-radius: 10px; }
+
+.createAcc {
+  margin-top: 30px;
+  height: 50px;
+  background-color: #ffa800; }
 
 .home-intro {
   padding: 30px 0;
@@ -9169,3 +9210,61 @@ button:focus {
         text-align: center; } }
     .contact-us-holder .right-holder .right-content {
       padding: 20px; }
+
+.signup {
+  padding: 50px 0; }
+  .signup .holder {
+    padding: 50px;
+    margin: auto;
+    max-width: 60%;
+    border: 1px solid #EEEEEE;
+    -webkit-box-shadow: 2px 2px 10px gray;
+            box-shadow: 2px 2px 10px gray; }
+    @media screen and (max-width: 767px) {
+      .signup .holder {
+        padding: 10px;
+        max-width: 100%; } }
+    @media (min-width: 768px) and (max-width: 991px) {
+      .signup .holder {
+        padding: 50px;
+        max-width: 80%; } }
+    @media (min-width: 992px) and (max-width: 1199px) {
+      .signup .holder {
+        padding: 50px;
+        max-width: 70%; } }
+    .signup .holder form label {
+      display: block;
+      position: absolute;
+      top: 45px;
+      z-index: 9;
+      color: #cecece;
+      font-size: 14px;
+      font-weight: 200;
+      -webkit-transition: 0.3s ease-in-out;
+      transition: 0.3s ease-in-out; }
+    @media screen and (max-width: 767px) {
+      .signup .holder form {
+        font-size: 13px; } }
+    .signup .holder form input.form-control {
+      margin-top: 40px;
+      padding: 0;
+      border: none;
+      border-bottom: 2px solid #CECECE;
+      font-size: 18px; }
+      @media screen and (max-width: 767px) {
+        .signup .holder form input.form-control {
+          font-size: 13px; } }
+    .signup .holder form select {
+      margin-top: 40px;
+      padding: 0;
+      border: none;
+      border-bottom: 2px solid #CECECE;
+      font-size: 18px;
+      color: #cecece; }
+      @media screen and (max-width: 767px) {
+        .signup .holder form select {
+          font-size: 13px; } }
+      .signup .holder form select option {
+        color: black; }
+        .signup .holder form select option:first-child {
+          color: #cecece; }

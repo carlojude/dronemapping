@@ -25,3 +25,12 @@
         vertical-align: middle;
     }
 }
+
+.input-group {
+    display: block !important;
+    input.form-control,
+    select {
+        outline: none;
+        box-shadow: none !important;
+    }
+}

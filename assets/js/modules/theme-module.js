@@ -278,6 +278,75 @@ AppName.Modules.ThemeModule = (function() {
         }, 5000);
     }
 
+    var focus = function() {
+        //focus in
+        $(":input").focus(function() {
+            $('input[id="' + $(this).attr('id') + '"').css({
+                "border-color": "#ffa800"
+            });
+
+            if ($(window).width() < 768) {
+                $('label[for="' + $(this).attr('id') + '"').css({
+                    "top": "10px",
+                    "color": "#ffa800",
+                    "font-size": "12px"
+                });
+            } else {
+                $('label[for="' + $(this).attr('id') + '"').css({
+                    "top": "10px",
+                    "color": "#ffa800",
+                    "font-size": "14px"
+                });
+            }
+        });
+        //foucs out
+        $(":input").focusout(function() {
+            if ($('input[id="' + $(this).attr('id') + '"').val() != "") {
+                $('input[id="' + $(this).attr('id') + '"').css({
+                    "border-color": "#5E61FF"
+                });
+                $('label[for="' + $(this).attr('id') + '"').css({
+                    "top": "10px",
+                    "color": "#cecece",
+                    "font-size": "12px"
+                });
+            } else {
+                if ($(window).width() < 768) {
+                    $('input[id="' + $(this).attr('id') + '"').css({
+                        "border-color": "#cecece"
+                    });
+                    $('label[for="' + $(this).attr('id') + '"').css({
+                        "top": "45px",
+                        "color": "#cecece",
+                        "font-size": "14px"
+                    });
+                } else {
+                    $('input[id="' + $(this).attr('id') + '"').css({
+                        "border-color": "#cecece"
+                    });
+                    $('label[for="' + $(this).attr('id') + '"').css({
+                        "top": "45px",
+                        "color": "#cecece",
+                        "font-size": "18px"
+                    });
+                }
+
+            }
+
+        });
+        //select focus
+        $("#industry").focus(function() {
+            $('#forIndustry').css({
+                "color": "#ffa800"
+            });
+        });
+        $("#industry").focusout(function() {
+            $('#forIndustry').css({
+                "color": "#cecece"
+            });
+        });
+    }
+
     /////////////////////
     // Public Methods //
     ///////////////////
@@ -291,6 +360,7 @@ AppName.Modules.ThemeModule = (function() {
         circle();
         closeImg();
         popover();
+        focus();
     };
 
     var resize = function() {
