@@ -10,11 +10,7 @@ var replace = require('gulp-replace');
 var rename = require('gulp-rename');
 
 gulp.task('scripts', function() {
-    gulp.src(['./assets/js/**/*.js', './assets/js/**/*.min.js'])
-        .pipe(plumber())
-        .pipe(rename({ suffix: '.min' }))
-        .pipe(uglify())
-        .pipe(gulp.dest('./assets/js'))
+    gulp.src('./assets/js/**/*.js')
         .pipe(reload({ stream: true }));
 });
 
@@ -50,4 +46,4 @@ gulp.task('watch', function() {
     gulp.watch('./*.html', ['html']);
 });
 
-gulp.task('default', ['stylesheet', 'html', 'browser-sync', 'watch']);
+gulp.task('default', ['scripts', 'stylesheet', 'html', 'browser-sync', 'watch']);

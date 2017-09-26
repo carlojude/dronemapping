@@ -9,6 +9,9 @@
         height: 500px;
         width: 100%;
         background-color: #212121;
+        @include respond-to("screen-xs") {
+            height: 400px;
+        }
         .circle {
             border: 1px dashed #eaeaea;
             position: absolute;
@@ -49,8 +52,14 @@
 
 .home-how-it-works {
     padding: 180px 0 50px 0;
+    @include respond-to("screen-xs") {
+        padding-top: 130px;
+    }
     .title {
         margin-bottom: 50px;
+        @include respond-to("screen-xs") {
+            margin-bottom: 20px;
+        }
     }
     .icon-holder {
         &:before {

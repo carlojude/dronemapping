@@ -8783,6 +8783,19 @@ body {
     .title {
       font-size: 24px; } }
 
+.carousel-content {
+  padding-left: 100px;
+  padding-right: 100px; }
+  @media screen and (max-width: 767px) {
+    .carousel-content {
+      padding-left: 0;
+      padding-right: 0;
+      text-align: justify !important; } }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .carousel-content {
+      padding-left: 0;
+      padding-right: 0; } }
+
 .title-content {
   text-align: center;
   font-weight: 300;
@@ -8790,6 +8803,10 @@ body {
   @media screen and (max-width: 767px) {
     .title-content {
       font-size: 14px; } }
+
+@media screen and (max-width: 767px) {
+  .contact-title {
+    font-size: 24px; } }
 
 .inner-title {
   font-weight: 400; }
@@ -8825,6 +8842,36 @@ body {
       text-align: left;
       font-size: 16px; } }
 
+@media screen and (max-width: 767px) {
+  .contact-us-holder form h3 {
+    font-size: 18px; } }
+
+.about-content .about-title {
+  font-weight: 600;
+  text-align: left; }
+  @media screen and (max-width: 767px) {
+    .about-content .about-title {
+      font-size: 24px; } }
+
+.about-content .content {
+  padding-top: 20px;
+  font-size: 16px;
+  line-height: 25px;
+  text-align: justify; }
+  @media screen and (max-width: 767px) {
+    .about-content .content {
+      font-size: 14px; } }
+
+.about-team .about-team-title {
+  margin-bottom: 40px;
+  color: white;
+  font-weight: 600;
+  text-align: left; }
+  @media screen and (max-width: 767px) {
+    .about-team .about-team-title {
+      text-align: center;
+      font-size: 24px; } }
+
 .no-margin {
   margin: 0; }
 
@@ -8855,6 +8902,13 @@ body {
     -webkit-box-shadow: none !important;
             box-shadow: none !important; }
 
+.indent {
+  padding-left: 40px; }
+
+@media screen and (max-width: 767px) {
+  header {
+    height: 50px; } }
+
 header li.active {
   color: #ffa800; }
 
@@ -8883,28 +8937,56 @@ header .offcanvas.in {
           header .offcanvas.in ul li a {
             font-size: 14px; } }
 
-header .navbar .navbar-toggle .icon-bar {
-  background-color: #ffa800; }
-
-header .navbar ul li a {
-  color: #A5A5A5;
-  -webkit-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out; }
-  header .navbar ul li a:hover, header .navbar ul li a:active, header .navbar ul li a:focus {
-    background-color: white;
-    color: #ffa800; }
-
-header .navbar ul li.sign-up {
-  background-color: #ffa800;
-  border-radius: 10px; }
-  header .navbar ul li.sign-up a {
+header .navbar {
+  margin-top: 5px;
+  margin-bottom: 0; }
+  header .navbar .navbar-toggle span {
+    background: #ffa800;
+    border: none;
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transition: all .35s ease;
+    transition: all .35s ease;
+    cursor: pointer; }
+    header .navbar .navbar-toggle span:nth-of-type(2) {
+      top: 5px; }
+    header .navbar .navbar-toggle span:nth-of-type(3) {
+      top: 11px; }
+    header .navbar .navbar-toggle span:nth-of-type(4) {
+      top: 17px; }
+  header .navbar .navbar-toggle.active .top {
+    -webkit-transform: translateY(6px) translateX(0) rotate(45deg);
+            transform: translateY(6px) translateX(0) rotate(45deg);
+    background: #ffa800; }
+  header .navbar .navbar-toggle.active .middle {
+    opacity: 0;
+    background: #ffa800; }
+  header .navbar .navbar-toggle.active .bottom {
+    -webkit-transform: translateY(-6px) translateX(0) rotate(-45deg);
+            transform: translateY(-6px) translateX(0) rotate(-45deg);
+    background: #ffa800; }
+  header .navbar ul li a {
+    color: #A5A5A5;
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+    border-radius: 10px; }
+    header .navbar ul li a:hover, header .navbar ul li a:active, header .navbar ul li a:focus {
+      background-color: white;
+      color: #ffa800; }
+  header .navbar ul li.sign-up {
+    background-color: #ffa800;
+    border-radius: 10px; }
+    header .navbar ul li.sign-up a {
+      color: black; }
+      header .navbar ul li.sign-up a:hover, header .navbar ul li.sign-up a:active, header .navbar ul li.sign-up a:focus {
+        background-color: #E29404 !important; }
+  header .navbar ul li.log-in a {
     color: black; }
-
-header .navbar ul li.log-in a {
-  color: black; }
-
-header .navbar ul li.active a {
-  color: #ffa800; }
+  header .navbar ul li.active a {
+    color: #ffa800; }
 
 header form .modal .modal-dialog {
   display: table; }
@@ -8916,6 +8998,10 @@ header form .modal .modal-dialog {
     @media screen and (max-width: 767px) {
       header form .modal .modal-dialog .modal-content {
         padding: 5px 5px; } }
+    header form .modal .modal-dialog .modal-content .close {
+      position: absolute;
+      top: 10px;
+      right: 20px; }
     header form .modal .modal-dialog .modal-content .input-group {
       margin: auto; }
       header form .modal .modal-dialog .modal-content .input-group input {
@@ -8932,7 +9018,7 @@ footer {
   footer a {
     padding-left: 7px;
     font-size: 13px;
-    color: #cccccc; }
+    color: #B3B3B3; }
     footer a:hover, footer a:active, footer a:focus {
       color: #cccccc; }
   footer ul {
@@ -8943,6 +9029,7 @@ footer {
   footer .footer-title {
     padding-left: 40px;
     font-size: 15px;
+    font-weight: 400;
     color: white; }
     @media screen and (max-width: 767px) {
       footer .footer-title {
@@ -8952,7 +9039,8 @@ footer {
     footer .contact-holder ul {
       list-style: none; }
       footer .contact-holder ul li {
-        padding-left: 7px; }
+        padding-left: 7px;
+        color: #B3B3B3; }
         @media screen and (max-width: 767px) {
           footer .contact-holder ul li {
             padding-left: 0; } }
@@ -8997,6 +9085,10 @@ button:focus {
 .login-signup {
   background-color: #ffa800;
   border-radius: 10px; }
+  .login-signup a {
+    color: black; }
+    .login-signup a:hover, .login-signup a:active, .login-signup a:focus {
+      background-color: #E29404 !important; }
 
 .createAcc {
   margin-top: 30px;
@@ -9013,6 +9105,9 @@ button:focus {
     height: 500px;
     width: 100%;
     background-color: #212121; }
+    @media screen and (max-width: 767px) {
+      .home-intro .canvas {
+        height: 400px; } }
     .home-intro .canvas .circle {
       border: 1px dashed #eaeaea;
       position: absolute;
@@ -9044,8 +9139,14 @@ button:focus {
 
 .home-how-it-works {
   padding: 180px 0 50px 0; }
+  @media screen and (max-width: 767px) {
+    .home-how-it-works {
+      padding-top: 130px; } }
   .home-how-it-works .title {
     margin-bottom: 50px; }
+    @media screen and (max-width: 767px) {
+      .home-how-it-works .title {
+        margin-bottom: 20px; } }
   .home-how-it-works .icon-holder:before {
     font-family: "Font Awesome";
     content: '\f054';
@@ -9268,3 +9369,27 @@ button:focus {
         color: black; }
         .signup .holder form select option:first-child {
           color: #cecece; }
+
+.about-content {
+  padding: 40px 0; }
+
+.about-team {
+  padding: 40px 0;
+  background-color: #1a1a1a; }
+  .about-team .img-holder {
+    width: 100%;
+    height: 300px;
+    background-color: #ffa800;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    text-align: center; }
+    .about-team .img-holder img {
+      margin-top: 30px;
+      width: 80%;
+      height: 80%; }
+  .about-team .member-info h3 {
+    color: white; }
+  .about-team .member-info p {
+    color: #c1c1c1;
+    text-align: justify; }

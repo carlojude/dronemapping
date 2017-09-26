@@ -12,12 +12,32 @@ body {
     }
 }
 
+.carousel-content {
+    padding-left: 100px;
+    padding-right: 100px;
+    @include respond-to("screen-xs") {
+        padding-left: 0;
+        padding-right: 0;
+        text-align: justify !important;
+    }
+    @include respond-to("screen-sm") {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
 .title-content {
     text-align: center;
     font-weight: 300;
     color: #656565;
     @include respond-to("screen-xs") {
         font-size: 14px;
+    }
+}
+
+.contact-title {
+    @include respond-to("screen-xs") {
+        font-size: 24px;
     }
 }
 
@@ -56,5 +76,47 @@ body {
     @include respond-to("screen-sm") {
         text-align: left;
         font-size: 16px;
+    }
+}
+
+.contact-us-holder {
+    form {
+        h3 {
+            @include respond-to("screen-xs") {
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+.about-content {
+    .about-title {
+        font-weight: 600;
+        text-align: left;
+        @include respond-to("screen-xs") {
+            font-size: 24px;
+        }
+    }
+    .content {
+        padding-top: 20px;
+        font-size: 16px;
+        line-height: 25px;
+        text-align: justify;
+        @include respond-to("screen-xs") {
+            font-size: 14px;
+        }
+    }
+}
+
+.about-team {
+    .about-team-title {
+        margin-bottom: 40px;
+        color: white;
+        font-weight: 600;
+        text-align: left;
+        @include respond-to("screen-xs") {
+            text-align: center;
+            font-size: 24px;
+        }
     }
 }

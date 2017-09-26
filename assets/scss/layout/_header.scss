@@ -1,4 +1,7 @@
 header {
+    @include respond-to(screen-xs) {
+        height: 50px;
+    }
     li.active {
         color: #ffa800;
     }
@@ -37,27 +40,67 @@ header {
         }
     }
     .navbar {
+        margin-top: 5px;
+        margin-bottom: 0;
         .navbar-toggle {
-            .icon-bar {
-                background-color: #ffa800;
+            span {
+                background: #ffa800;
+                border: none;
+                height: 3px;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                transition: all .35s ease;
+                cursor: pointer;
+                &:nth-of-type(2) {
+                    top: 5px;
+                }
+                &:nth-of-type(3) {
+                    top: 11px;
+                }
+                &:nth-of-type(4) {
+                    top: 17px;
+                }
             }
+            &.active {
+                .top {
+                    transform: translateY(6px) translateX(0) rotate(45deg);
+                    background: #ffa800;
+                }
+                .middle {
+                    opacity: 0;
+                    background: #ffa800;
+                }
+                .bottom {
+                    transform: translateY(-6px) translateX(0) rotate(-45deg);
+                    background: #ffa800;
+                }
+            }
+            // .icon-bar {
+            //     background-color: #ffa800;
+            // }
         }
         ul {
             li {
                 a {
                     color: #A5A5A5;
                     transition: 0.3s ease-in-out;
+                    border-radius: 10px;
                     @include on-event {
                         background-color: white;
                         color: #ffa800;
                     }
                 }
                 &.sign-up {
-                    a {
-                        color: black;
-                    }
                     background-color: #ffa800;
                     border-radius: 10px;
+                    a {
+                        color: black;
+                        @include on-event {
+                            background-color: #E29404 !important;
+                        }
+                    }
                 }
                 &.log-in {
                     a {
@@ -83,6 +126,11 @@ header {
                     height: 70vh;
                     @include respond-to("screen-xs") {
                         padding: 5px 5px;
+                    }
+                    .close {
+                        position: absolute;
+                        top: 10px;
+                        right: 20px;
                     }
                     .input-group {
                         margin: auto;

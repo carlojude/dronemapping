@@ -15,6 +15,12 @@ button {
 .login-signup {
     background-color: #ffa800;
     border-radius: 10px;
+    a {
+        color: black;
+        @include on-event {
+            background-color: #E29404 !important;
+        }
+    }
 }
 
 .createAcc {

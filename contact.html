@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
+    <title>Contact Us</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
@@ -17,25 +17,27 @@
             <nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
                 <ul class="text-center">
                     <li>BRAND</li>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="sign-up"><a href="sign-up.html">Sign Up</a></li>
+                    <li class="log-in"><a href="#" data-toggle="modal" data-target=".bs-example-modal">Log In</a></li>
                 </ul>
             </nav>
 
             <div class="navbar">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="offcanvas" data-target="#myNavmenu" aria-expanded="false">
+                <button type="button" class="navbar-toggle collapsed" id="btn-menu" data-toggle="offcanvas" data-target="#myNavmenu" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-                <a class="navbar-brand" href="index.html">08502</a>
+                    <span class="top"></span>
+                    <span class="middle"></span>
+                    <span class="bottom"></span>
+                </button>
+                <a class="navbar-brand" href="/">08502</a>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.html">HOME<span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">ABOUT</a></li>
-                        <li class="active"><a href="contact.html">CONTACT US</a></li>
+                        <li><a href="/">HOME</a></li>
+                        <li><a href="about.html">ABOUT</a></li>
+                        <li class="active"><a href="contact.html">CONTACT US<span class="sr-only">(current)</span></a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="sign-up"><a href="sign-up.html">Sign Up</a></li>
@@ -48,6 +50,7 @@
             <div class="modal fade bs-example-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h3 class="text-center no-margin-head">Login</h3>
                         <div class="input-group">
                             <input class="form-control" type="email" name="email" id="email" placeholder="Email">

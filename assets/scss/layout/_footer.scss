@@ -6,7 +6,7 @@ footer {
     a {
         padding-left: 7px;
         font-size: 13px;
-        color: #cccccc;
+        color: #B3B3B3;
         @include on-event {
             color: #cccccc;
         }
@@ -20,6 +20,7 @@ footer {
     .footer-title {
         padding-left: 40px;
         font-size: 15px;
+        font-weight: 400;
         color: white;
         @include respond-to("screen-xs") {
             padding-left: 0;
@@ -31,6 +32,7 @@ footer {
             list-style: none;
             li {
                 padding-left: 7px;
+                color: #B3B3B3;
                 @include respond-to("screen-xs") {
                     padding-left: 0;
                 }

@@ -347,6 +347,12 @@ AppName.Modules.ThemeModule = (function() {
         });
     }
 
+    var menu = function() {
+        $('#btn-menu').click(function() {
+            $('#btn-menu').toggleClass('active');
+        });
+    }
+
     /////////////////////
     // Public Methods //
     ///////////////////
@@ -361,6 +367,7 @@ AppName.Modules.ThemeModule = (function() {
         closeImg();
         popover();
         focus();
+        menu();
     };
 
     var resize = function() {
