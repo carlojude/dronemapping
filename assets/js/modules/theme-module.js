@@ -302,9 +302,6 @@ AppName.Modules.ThemeModule = (function() {
         //foucs out
         $(":input").focusout(function() {
             if ($('input[id="' + $(this).attr('id') + '"').val() != "") {
-                $('input[id="' + $(this).attr('id') + '"').css({
-                    "border-color": "#5E61FF"
-                });
                 $('label[for="' + $(this).attr('id') + '"').css({
                     "top": "10px",
                     "color": "#cecece",
@@ -353,6 +350,19 @@ AppName.Modules.ThemeModule = (function() {
         });
     }
 
+    var verifyPassword = function() {
+
+        $('#confirmPass').keyup(function() {
+
+            if ($('#confirmPass').val() != $('#password').val()) {
+                $('#create').attr('disabled', true);
+                $('#confirmPass').css("border-color", "red");
+            } else {
+                $('#create').attr('disabled', false);
+            }
+        });
+    }
+
     /////////////////////
     // Public Methods //
     ///////////////////
@@ -368,6 +378,7 @@ AppName.Modules.ThemeModule = (function() {
         popover();
         focus();
         menu();
+        verifyPassword();
     };
 
     var resize = function() {
