@@ -363,6 +363,21 @@ AppName.Modules.ThemeModule = (function() {
         });
     }
 
+    var code = function() {
+
+        $('#code').val(makeid());
+
+        function makeid() {
+            var text = "";
+            var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+            for (var i = 0; i < 5; i++)
+                text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+            return text;
+        }
+    }
+
     /////////////////////
     // Public Methods //
     ///////////////////
@@ -379,6 +394,7 @@ AppName.Modules.ThemeModule = (function() {
         focus();
         menu();
         verifyPassword();
+        code();
     };
 
     var resize = function() {
