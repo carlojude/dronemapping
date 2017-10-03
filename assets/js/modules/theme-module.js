@@ -378,6 +378,33 @@ AppName.Modules.ThemeModule = (function() {
         }
     }
 
+    var inputFile = function() {
+        $('#upload').change(function() {
+            var i = $(this).next('label').clone();
+            var file = $('#upload')[0].files[0];
+            var fileName = $('#upload')[0].files[0].name;
+            var fileType = file["type"];
+            var validImageTypes = ["image/gif", "image/jpeg", "image/png"];
+
+            if ($.inArray(fileType, validImageTypes) < 0) {
+                $('#uploadBtn').attr("disabled", true);
+                $(this).next('label').text("Invalid File Type");
+                $('#forUpload').css("background-color", "#cc0000");
+            } else {
+                $('#uploadBtn').attr("disabled", false);
+                $('#forUpload').css("background-color", "#ffa800");
+                if (this.files && this.files.length > 1) {
+                    $(this).next('label').text(this.files.length + " files selected");
+                } else {
+                    $(this).next('label').text(fileName);
+                }
+            }
+
+
+
+        });
+    }
+
     /////////////////////
     // Public Methods //
     ///////////////////
@@ -395,6 +422,7 @@ AppName.Modules.ThemeModule = (function() {
         menu();
         verifyPassword();
         code();
+        inputFile();
     };
 
     var resize = function() {

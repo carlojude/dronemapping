@@ -91,9 +91,13 @@
             <div class="upload-file-holder">
                 <div class="row no-margin">
                     <div class="col-xs-12">
-                        <div class="uploadBtn-holder">
-                            <button class="uploadBtn">Upload Image</button>
-                        </div>
+                        <form action="">
+                            <div class="uploadBtn-holder">
+                                <input type="file" class="uploadFile" id="upload" name="upload" multiple>
+                                <label for="upload" id="forUpload"><i class="fa fa-file" aria-hidden="true"></i> Choose File</label>
+                                <button class="uploadBtn" id="uploadBtn" disabled="disabled"><i class="fa fa-upload" aria-hidden="true"></i></button>
+                            </div>
+                        </form>
                     </div>
                     <div class="col-md-3 col-sm-6 col-xs-12">
                         <div class="uploaded-holder text-center">

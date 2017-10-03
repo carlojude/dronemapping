@@ -10,6 +10,10 @@ button {
     background-color: #ffa800;
     border: none;
     box-shadow: 0 2px 10px gray;
+    &:disabled {
+        display: none;
+        cursor: not-allowed;
+    }
 }
 
 .login-signup {
@@ -31,4 +35,13 @@ button {
 
 .logout {
     box-shadow: none;
+}
+
+.uploadFile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
 }

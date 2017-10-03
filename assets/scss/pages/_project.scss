@@ -68,6 +68,22 @@
 .project-thumbnail {
     padding: 0 0 40px 0;
     margin-top: -317px;
+    .uploadBtn-holder {
+        label {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #ffa800;
+            color: black !important;
+            border: none;
+            box-shadow: 0 2px 10px gray;
+            font-size: 14px !important;
+            font-weight: 400;
+            @include on-event {
+                cursor: pointer;
+                background-color: #DA8F05;
+            }
+        }
+    }
     .uploaded-holder {
         margin-bottom: 10px;
         box-shadow: 2px 3px 15px gray;
