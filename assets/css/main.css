@@ -8977,7 +8977,7 @@ header .navbar {
       background-color: white;
       color: #ffa800; }
   header .navbar .nav li.sign-up {
-    background-color: #FFCF76;
+    background-color: #ffa800;
     border-radius: 10px; }
     header .navbar .nav li.sign-up a {
       color: black; }
@@ -9100,6 +9100,10 @@ button:focus {
   margin-top: 30px;
   height: 50px;
   background-color: #ffa800; }
+
+.logout {
+  -webkit-box-shadow: none;
+          box-shadow: none; }
 
 .home-intro {
   padding: 30px 0;
