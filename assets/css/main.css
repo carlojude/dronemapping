@@ -8968,25 +8968,31 @@ header .navbar {
     -webkit-transform: translateY(-6px) translateX(0) rotate(-45deg);
             transform: translateY(-6px) translateX(0) rotate(-45deg);
     background: #ffa800; }
-  header .navbar ul li a {
+  header .navbar .nav li a {
     color: #A5A5A5;
     -webkit-transition: 0.3s ease-in-out;
     transition: 0.3s ease-in-out;
     border-radius: 10px; }
-    header .navbar ul li a:hover, header .navbar ul li a:active, header .navbar ul li a:focus {
+    header .navbar .nav li a:hover, header .navbar .nav li a:active, header .navbar .nav li a:focus {
       background-color: white;
       color: #ffa800; }
-  header .navbar ul li.sign-up {
-    background-color: #ffa800;
+  header .navbar .nav li.sign-up {
+    background-color: #FFCF76;
     border-radius: 10px; }
-    header .navbar ul li.sign-up a {
+    header .navbar .nav li.sign-up a {
       color: black; }
-      header .navbar ul li.sign-up a:hover, header .navbar ul li.sign-up a:active, header .navbar ul li.sign-up a:focus {
+      header .navbar .nav li.sign-up a:hover, header .navbar .nav li.sign-up a:active, header .navbar .nav li.sign-up a:focus {
         background-color: #E29404 !important; }
-  header .navbar ul li.log-in a {
+  header .navbar .nav li.log-in a {
     color: black; }
-  header .navbar ul li.active a {
+  header .navbar .nav li.active a {
     color: #ffa800; }
+  header .navbar .nav .open a.focus {
+    background-color: white;
+    color: #A5A5A5; }
+  header .navbar .nav .open a.active {
+    background-color: white;
+    color: #A5A5A5; }
 
 header form .modal .modal-dialog {
   display: table; }

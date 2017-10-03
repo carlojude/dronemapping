@@ -81,7 +81,7 @@ header {
             //     background-color: #ffa800;
             // }
         }
-        ul {
+        .nav {
             li {
                 a {
                     color: #A5A5A5;
@@ -93,7 +93,7 @@ header {
                     }
                 }
                 &.sign-up {
-                    background-color: #ffa800;
+                    background-color: #FFCF76;
                     border-radius: 10px;
                     a {
                         color: black;
@@ -110,6 +110,18 @@ header {
                 &.active {
                     a {
                         color: #ffa800;
+                    }
+                }
+            }
+            .open {
+                a {
+                    &.focus {
+                        background-color: white;
+                        color: #A5A5A5;
+                    }
+                    &.active {
+                        background-color: white;
+                        color: #A5A5A5;
                     }
                 }
             }
