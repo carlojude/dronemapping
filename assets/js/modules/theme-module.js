@@ -155,55 +155,69 @@ AppName.Modules.ThemeModule = (function() {
     }
 
     var square = function() {
+        var clicks = 0;
         $('#square').click(function() {
-            initDraw(document.getElementById('canvas'));
 
-            function initDraw(canvas) {
-                function setMousePosition(e) {
-                    var ev = e || window.event; //Moz || IE
-                    if (ev.pageX) { //Moz
-                        mouse.x = ev.pageX + window.pageXOffset;
-                        mouse.y = ev.pageY + window.pageYOffset;
-                    } else if (ev.clientX) { //IE
-                        mouse.x = ev.clientX + document.body.scrollLeft;
-                        mouse.y = ev.clientY + document.body.scrollTop;
+
+            if (clicks == 0) {
+                $('#square').css('background-color', 'gray');
+                initDraw(document.getElementById('canvas'));
+
+                function initDraw(canvas) {
+                    var mouse = {
+                        x: 0,
+                        y: 0,
+                        startX: 0,
+                        startY: 0
+                    };
+                    var element = null;
+
+                    function setMousePosition(e) {
+                        var ev = e || window.event; //Moz || IE
+                        if (ev.pageX) { //Moz
+                            mouse.x = ev.pageX;
+                            mouse.y = ev.pageY;
+                        } else if (ev.clientX) { //IE
+                            mouse.x = ev.clientX;
+                            mouse.y = ev.clientY;
+                        }
+                    };
+
+                    canvas.onmousemove = function(e) {
+                        setMousePosition(e);
+                        if (element !== null) {
+                            element.style.width = Math.abs(mouse.x - mouse.startX) + 'px';
+                            element.style.height = Math.abs(mouse.y - mouse.startY) + 'px';
+                            element.style.left = (mouse.x - mouse.startX < 0) ? mouse.x + 'px' : mouse.startX + 'px';
+                            element.style.top = (mouse.y - mouse.startY < 0) ? mouse.y + 'px' : mouse.startY + 'px';
+                        }
                     }
-                };
-                var mouse = {
-                    x: 0,
-                    y: 0,
-                    startX: 0,
-                    startY: 0
-                };
-                var element = null;
 
-                canvas.onmousemove = function(e) {
-                    setMousePosition(e);
-                    if (element !== null) {
-                        element.style.width = Math.abs(mouse.x - mouse.startX) + 'px';
-                        element.style.height = Math.abs(mouse.y - mouse.startY) + 'px';
-                        element.style.left = (mouse.x - mouse.startX < 0) ? mouse.x + 'px' : mouse.startX + 'px';
-                        element.style.top = (mouse.y - mouse.startY < 0) ? mouse.y + 'px' : mouse.startY + 'px';
+                    canvas.onmousedown = function(e) {
+                        if (element !== null) {
+                            element = null;
+                            canvas.style.cursor = "crosshair";
+                            console.log("finsihed.");
+                        } else {
+                            console.log("begun.");
+                            mouse.startX = mouse.x;
+                            mouse.startY = mouse.y;
+                            element = document.createElement('div');
+                            element.className = 'rectangle';
+                            element.id = 'resizable';
+                            element.style.left = mouse.x + 'px';
+                            element.style.top = mouse.y + 'px';
+                            canvas.appendChild(element)
+                            canvas.style.cursor = "crosshair";
+                        }
                     }
                 }
-
-                canvas.onclick = function(e) {
-                    if (element !== null) {
-                        element = null;
-                        canvas.style.cursor = "crosshair";
-                        console.log("finsihed.");
-                    } else {
-                        console.log("begun.");
-                        mouse.startX = mouse.x;
-                        mouse.startY = mouse.y;
-                        element = document.createElement('div');
-                        element.className = 'rectangle'
-                        element.style.left = mouse.x + 'px';
-                        element.style.top = mouse.y + 'px';
-                        canvas.appendChild(element)
-                        canvas.style.cursor = "crosshair";
-                    }
-                }
+                clicks++;
+            } else {
+                $('#square').css('background-color', '#F4F4F4');
+                $('.canvas').css('cursor', 'default');
+                $('.canvas').removeAttr('id');
+                clicks--;
             }
         });
     }
@@ -213,14 +227,18 @@ AppName.Modules.ThemeModule = (function() {
             initDraw(document.getElementById('canvas'));
 
             function initDraw(canvas) {
+
+                canvas.width = canvas.offsetWidth;
+                canvas.height = canvas.offsetHeight;
+
                 function setMousePosition(e) {
                     var ev = e || window.event; //Moz || IE
                     if (ev.pageX) { //Moz
-                        mouse.x = ev.pageX + window.pageXOffset;
-                        mouse.y = ev.pageY + window.pageYOffset;
+                        mouse.x = ev.pageX;
+                        mouse.y = ev.pageY;
                     } else if (ev.clientX) { //IE
-                        mouse.x = ev.clientX + document.body.scrollLeft;
-                        mouse.y = ev.clientY + document.body.scrollTop;
+                        mouse.x = ev.clientX;
+                        mouse.y = ev.clientY;
                     }
                 };
                 var mouse = {
@@ -275,7 +293,7 @@ AppName.Modules.ThemeModule = (function() {
     var screenLoader = function() {
         setTimeout(function() {
             $(".se-pre-con").fadeOut('slow');
-        }, 5000);
+        }, 3000);
     }
 
     var focus = function() {
@@ -399,10 +417,189 @@ AppName.Modules.ThemeModule = (function() {
                     $(this).next('label').text(fileName);
                 }
             }
+        });
+    }
 
+    var openImage = function() {
+        $(':button').click(function() {
+            if ($('img[id="drag' + this.id + '"').css('display') == 'none') {
+                $('img[id="drag' + this.id + '"').fadeIn();
+                $('img[id="drag' + this.id + '"').addClass('zoom');
+
+                $('[id="overlay' + this.id + '"').css({
+                    "background-color": "rgba(0, 0, 0, 0.7)"
+                });
+                wheelzoom(document.querySelector('img.zoom'));
+
+                $('.canvas').attr("id", "canvas");
+
+                $('button[id="hideImg' + this.id + '"').toggleClass('hidden');
+                $('button[id="' + this.id + '"').toggleClass('hidden');
+            } else {
+                $('img[id="drag' + this.id + '"').fadeOut();
+                $('img[id="drag' + this.id + '"').removeClass('zoom');
+                $('.overlay').css({
+                    "background-color": "transparent"
+                });
+
+                $('.canvas').removeAttr('id');
+
+                $('.rectangle').remove();
+                $('.circle').remove();
+                $('button[id="' + this.id + '"').toggleClass('hidden');
+                $('button[id="hideImg' + this.id + '"').toggleClass('hidden');
+            }
+            console.log(this.id);
+        });
+    }
+
+    var showRectangle = function() {
+        var clicks = 0;
+        $('#square').click(function() {
+            if (clicks == 0) {
+                $('#square').css('background-color', 'gray');
+                $('.rectangle').toggleClass('hidden');
+                clicks++;
+            } else {
+                $('#square').css('background-color', '#F4F4F4');
+                $('.rectangle').toggleClass('hidden');
+                clicks--;
+            }
 
 
         });
+    }
+
+    var controllers = function() {
+        $('.rectangle').attr('id', 'draggable');
+        $('.rectangle').draggable();
+        $('.rectangle').attr('id', 'resizable');
+        $('.rectangle').resizable();
+
+        var rotation = 0;
+
+        jQuery.fn.rotate = function(degrees) {
+            $(this).css({
+                '-webkit-transform': 'rotate(' + degrees + 'deg)',
+                '-moz-transform': 'rotate(' + degrees + 'deg)',
+                '-ms-transform': 'rotate(' + degrees + 'deg)',
+                'transform': 'rotate(' + degrees + 'deg)'
+            });
+        };
+
+        $('#rotateRight').click(function() {
+            rotation += 5;
+            $('.rectangle').rotate(rotation);
+        });
+
+        $('#rotateLeft').click(function() {
+            rotation -= 5;
+            $('.rectangle').rotate(rotation);
+        });
+
+        (function(e) {
+            function t() {
+                var e = document.createElement("p");
+                var t = false;
+                if (e.addEventListener) e.addEventListener("DOMAttrModified", function() { t = true }, false);
+                else if (e.attachEvent) e.attachEvent("onDOMAttrModified", function() { t = true });
+                else return false;
+                e.setAttribute("id", "target");
+                return t
+            }
+
+            function n(t, n) {
+                if (t) {
+                    var r = this.data("attr-old-value");
+                    if (n.attributeName.indexOf("style") >= 0) {
+                        if (!r["style"]) r["style"] = {};
+                        var i = n.attributeName.split(".");
+                        n.attributeName = i[0];
+                        n.oldValue = r["style"][i[1]];
+                        n.newValue = i[1] + ":" + this.prop("style")[e.camelCase(i[1])];
+                        r["style"][i[1]] = n.newValue
+                    } else {
+                        n.oldValue = r[n.attributeName];
+                        n.newValue = this.attr(n.attributeName);
+                        r[n.attributeName] = n.newValue
+                    }
+                    this.data("attr-old-value", r)
+                }
+            }
+            var r = window.MutationObserver || window.WebKitMutationObserver;
+            e.fn.attrchange = function(i) {
+                var s = { trackValues: false, callback: e.noop };
+                if (typeof i === "function") { s.callback = i } else { e.extend(s, i) }
+                if (s.trackValues) {
+                    e(this).each(function(t, n) {
+                        var r = {};
+                        for (var i, t = 0, s = n.attributes, o = s.length; t < o; t++) {
+                            i = s.item(t);
+                            r[i.nodeName] = i.value
+                        }
+                        e(this).data("attr-old-value", r)
+                    })
+                }
+                if (r) {
+                    var o = { subtree: false, attributes: true, attributeOldValue: s.trackValues };
+                    var u = new r(function(t) {
+                        t.forEach(function(t) {
+                            var n = t.target;
+                            if (s.trackValues) { t.newValue = e(n).attr(t.attributeName) }
+                            s.callback.call(n, t)
+                        })
+                    });
+                    return this.each(function() { u.observe(this, o) })
+                } else if (t()) {
+                    return this.on("DOMAttrModified", function(e) {
+                        if (e.originalEvent) e = e.originalEvent;
+                        e.attributeName = e.attrName;
+                        e.oldValue = e.prevValue;
+                        s.callback.call(this, e)
+                    })
+                } else if ("onpropertychange" in document.body) {
+                    return this.on("propertychange", function(t) {
+                        t.attributeName = window.event.propertyName;
+                        n.call(e(this), s.trackValues, t);
+                        s.callback.call(this, t)
+                    })
+                }
+                return this
+            }
+        })(jQuery)
+    }
+
+    var computation = function() {
+
+
+
+        var imgHeight = 768; //image file height
+        var imgWidth = 1024; //image file width
+        var focalLength = 25;
+        var sensorHeight = 4.56;
+        var distance = 1; //distance of drone from the ground
+        var actualHeight = 1000; //height of assumed reference
+        var objectHeight = 0; //height of object in canvas
+        var pixelPerMetric = 0; //for every __ px there will be __ inch
+
+        objectHeight = (focalLength * actualHeight * imgHeight) / (distance * sensorHeight);
+        pixelPerMetric = objectHeight / actualHeight;
+
+        $(function() {
+            var prevHeight = $('#test').height();
+            $('.rectangle').attrchange({
+                callback: function(e) {
+                    var curHeight = $(this).height();
+                    if (prevHeight !== curHeight) {
+                        prevHeight = curHeight;
+                    }
+                }
+            }).resizable();
+        });
+
+
+
+
     }
 
     /////////////////////
@@ -414,8 +611,8 @@ AppName.Modules.ThemeModule = (function() {
         owlCarouselBottom();
         useImage();
         removeBox();
-        square();
-        circle();
+        // square();
+        // circle();
         closeImg();
         popover();
         focus();
@@ -423,6 +620,10 @@ AppName.Modules.ThemeModule = (function() {
         verifyPassword();
         code();
         inputFile();
+        // openImage();
+        showRectangle();
+        controllers();
+        computation();
     };
 
     var resize = function() {
