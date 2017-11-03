@@ -9935,7 +9935,6 @@ footer {
   position: relative;
   bottom: 0;
   padding: 20px 0 0 0;
-  margin-top: 40px;
   background-color: #313131; }
   footer a {
     padding-left: 7px;
@@ -10029,6 +10028,16 @@ button:focus {
   overflow: hidden;
   position: absolute;
   z-index: -1; }
+
+.delete {
+  top: 0;
+  position: absolute;
+  max-width: 30px;
+  right: 0;
+  background-color: transparent;
+  border: none; }
+  .delete .fa {
+    color: white; }
 
 .home-intro {
   padding: 30px 0;
@@ -10146,19 +10155,57 @@ button:focus {
       .project-canvas .canvas {
         height: 420px; } }
     .project-canvas .canvas .circle {
-      border: 1px dashed #eaeaea;
       position: absolute;
-      background-color: rgba(0, 0, 0, 0.5);
-      border-radius: 50%; }
-    .project-canvas .canvas .rectangle {
-      position: absolute;
+      display: none;
       width: 200px;
       height: 200px;
-      border: 1px dashed #eaeaea;
+      border: 2px dashed #ffa800;
+      border-radius: 50%;
       background-color: rgba(0, 0, 0, 0.5); }
-      .project-canvas .canvas .rectangle .fa-repeat {
-        position: relative;
-        top: -20px; }
+      .project-canvas .canvas .circle .display-table {
+        margin-top: -20px; }
+        .project-canvas .canvas .circle .display-table .area .areaValue {
+          color: white;
+          z-index: 999; }
+      .project-canvas .canvas .circle .ui-icon-gripsmall-diagonal-se {
+        background-color: #8d5d00; }
+    .project-canvas .canvas .rectangle {
+      position: absolute;
+      display: none;
+      width: 200px;
+      height: 200px;
+      border: 2px dashed #ffa800;
+      background-color: rgba(0, 0, 0, 0.5); }
+      .project-canvas .canvas .rectangle .display-table .area .areaValue {
+        color: white;
+        z-index: 999; }
+      .project-canvas .canvas .rectangle .ui-icon-gripsmall-diagonal-se {
+        background-color: #8d5d00; }
+    .project-canvas .canvas .line {
+      position: absolute;
+      display: none;
+      width: 10px;
+      left: 20px;
+      height: 200px;
+      background-color: #ffa800; }
+      .project-canvas .canvas .line .lineHeight {
+        position: absolute;
+        margin-left: -50px;
+        color: white;
+        z-index: 999; }
+        .project-canvas .canvas .line .lineHeight span {
+          padding: 0 2px;
+          background-color: #1f1f1f; }
+      .project-canvas .canvas .line .lineWidth {
+        position: absolute;
+        bottom: -15px;
+        color: white;
+        z-index: 999; }
+        .project-canvas .canvas .line .lineWidth span {
+          padding: 0 2px;
+          background-color: #1f1f1f; }
+      .project-canvas .canvas .line .ui-icon-gripsmall-diagonal-se {
+        display: none !important; }
     .project-canvas .canvas img {
       width: 100%;
       height: 100%; }
@@ -10180,9 +10227,19 @@ button:focus {
     top: 10px;
     left: 10px;
     max-width: 60px; }
+    .project-canvas .control-holder .elevation {
+      position: absolute;
+      margin-left: 58px;
+      margin-top: 10px; }
+      .project-canvas .control-holder .elevation input {
+        display: inline-block;
+        max-width: 100px; }
+      .project-canvas .control-holder .elevation span {
+        display: inline-block;
+        margin-right: 5px; }
     .project-canvas .control-holder ul {
       position: relative;
-      bottom: 317px;
+      bottom: 389px;
       left: 10px;
       padding: 0;
       text-align: center;
@@ -10193,10 +10250,20 @@ button:focus {
         .project-canvas .control-holder ul li:hover, .project-canvas .control-holder ul li:active, .project-canvas .control-holder ul li:focus {
           cursor: pointer;
           background-color: lightgray; }
+        .project-canvas .control-holder ul li a {
+          color: black; }
 
 .project-thumbnail {
   padding: 0 0 40px 0;
-  margin-top: -317px; }
+  margin-top: -389px; }
+  .project-thumbnail .previewImage {
+    opacity: 0;
+    margin: auto;
+    text-align: center !important; }
+    .project-thumbnail .previewImage canvas {
+      display: table !important;
+      margin: auto !important;
+      width: 60% !important; }
   .project-thumbnail .uploadBtn-holder label {
     margin-bottom: 20px;
     padding: 10px;

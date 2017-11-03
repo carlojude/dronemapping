@@ -5,6 +5,10 @@ AppName.Modules.ThemeModule = (function() {
     //////////////////////
     // Private Methods //
     ////////////////////
+    var clicksRec = 0;
+    var clicksCir = 0;
+    var clicksLine = 0;
+    var clicks = 0;
 
     var matchHeight = function() {
         $.fn.equalHeights = function() {
@@ -122,8 +126,16 @@ AppName.Modules.ThemeModule = (function() {
 
             $('.canvas').removeAttr('id');
 
-            $('.rectangle').remove();
-            $('.circle').remove();
+            if ($('.rectangle').css('display') == 'block') {
+                $('.rectangle').css('display', 'none');
+                $('#square').css('background-color', '#f4f4f4');
+                clicksRec--;
+            }
+            if ($('.circle').css('display') == 'block') {
+                $('.circle').css('display', 'none');
+                $('#circle').css('background-color', '#f4f4f4');
+                clicksCir--;
+            }
             $('#useImg1').toggleClass('hidden');
             $('#hideImg1').toggleClass('hidden');
         });
@@ -140,22 +152,28 @@ AppName.Modules.ThemeModule = (function() {
 
             $('.canvas').removeAttr('id');
 
-            $('.rectangle').remove();
-            $('.circle').remove();
-            $('#useImg1').toggleClass('hidden');
-            $('#hideImg1').toggleClass('hidden');
-        });
-    }
-
-    var removeBox = function() {
-        $('#removeBox').click(function() {
-            $('.rectangle').remove();
-            $('.circle').remove();
+            if ($('.rectangle').css('display') == 'block') {
+                $('.rectangle').css('display', 'none');
+                $('#square').css('background-color', '#f4f4f4');
+                clicksRec--;
+            }
+            if ($('.circle').css('display') == 'block') {
+                $('.circle').css('display', 'none');
+                $('#circle').css('background-color', '#f4f4f4');
+                clicksCir--;
+            }
+            if ($('#useImg1').css('display') == 'block') {
+                $('#useImg1').toggleClass('hidden');
+                $('#hideImg1').toggleClass('hidden');
+            }
+            if ($('#hideImg1').css('display') == 'block') {
+                $('#hideImg1').toggleClass('hidden');
+                $('#useImg1').toggleClass('hidden');
+            }
         });
     }
 
     var square = function() {
-        var clicks = 0;
         $('#square').click(function() {
 
 
@@ -420,11 +438,18 @@ AppName.Modules.ThemeModule = (function() {
         });
     }
 
+
     var openImage = function() {
         $(':button').click(function() {
-            if ($('img[id="drag' + this.id + '"').css('display') == 'none') {
-                $('img[id="drag' + this.id + '"').fadeIn();
-                $('img[id="drag' + this.id + '"').addClass('zoom');
+            var img = $('img[id="drag' + this.id + '"');
+            open = $('button[id="' + this.id + '"');
+            openId = open.attr('id');
+            var close = $('button[id="hideImg' + this.id + '"');
+            console.log(openId);
+
+            if (open.text() == 'Open') {
+                img.fadeIn();
+                img.addClass('zoom');
 
                 $('[id="overlay' + this.id + '"').css({
                     "background-color": "rgba(0, 0, 0, 0.7)"
@@ -433,48 +458,122 @@ AppName.Modules.ThemeModule = (function() {
 
                 $('.canvas').attr("id", "canvas");
 
-                $('button[id="hideImg' + this.id + '"').toggleClass('hidden');
-                $('button[id="' + this.id + '"').toggleClass('hidden');
+                if (open.css('display') == 'inline-block') {
+                    open.toggleClass('hidden');
+                    close.toggleClass('hidden');
+                }
             } else {
                 $('img[id="drag' + this.id + '"').fadeOut();
                 $('img[id="drag' + this.id + '"').removeClass('zoom');
                 $('.overlay').css({
                     "background-color": "transparent"
                 });
+                document.querySelector('img').dispatchEvent(new CustomEvent('wheelzoom.destroy'));
 
                 $('.canvas').removeAttr('id');
 
-                $('.rectangle').remove();
-                $('.circle').remove();
-                $('button[id="' + this.id + '"').toggleClass('hidden');
-                $('button[id="hideImg' + this.id + '"').toggleClass('hidden');
+                if ($('.rectangle').css('display') == 'block') {
+                    $('.rectangle').css('display', 'none');
+                    $('#square').css('background-color', '#f4f4f4');
+                    clicksRec--;
+                }
+                if ($('.circle').css('display') == 'block') {
+                    $('.circle').css('display', 'none');
+                    $('#circle').css('background-color', '#f4f4f4');
+                    clicksCir--;
+                }
+                if ($('button[id="hideImg' + this.id + '"').css('display') == 'inline-block') {
+                    $('button[id="' + this.id + '"').toggleClass('hidden');
+                    $('button[id="hideImg' + this.id + '"').toggleClass('hidden');
+                }
             }
-            console.log(this.id);
         });
     }
 
-    var showRectangle = function() {
-        var clicks = 0;
+    var closeImage = function() {
+        $(':button').click(function() {
+            var close = $('button[id="' + this.id + openId + '"');
+
+            if (close.text() == 'Close') {
+                $('img[id="drag' + openId + '"').fadeOut();
+                $('img[id="drag' + openId + '"').removeClass('zoom');
+                $('.overlay').css({
+                    "background-color": "transparent"
+                });
+                document.querySelector('img').dispatchEvent(new CustomEvent('wheelzoom.destroy'));
+
+                $('.canvas').removeAttr('id');
+
+                if ($('.rectangle').css('display') == 'block') {
+                    $('.rectangle').css('display', 'none');
+                    $('#square').css('background-color', '#f4f4f4');
+                    clicksRec--;
+                }
+                if ($('.circle').css('display') == 'block') {
+                    $('.circle').css('display', 'none');
+                    $('#circle').css('background-color', '#f4f4f4');
+                    clicksCir--;
+                }
+                if ($('button[id="' + this.id + openId + '"').css('display') == 'inline-block') {
+                    $('button[id="' + open + '"').toggleClass('hidden');
+                    $('button[id="' + this.id + openId + '"').toggleClass('hidden');
+                }
+            }
+        });
+    }
+
+    var showShapes = function() {
+
         $('#square').click(function() {
-            if (clicks == 0) {
+            $('.rectangle').toggle();
+            if (clicksRec == 0) {
                 $('#square').css('background-color', 'gray');
-                $('.rectangle').toggleClass('hidden');
-                clicks++;
+                clicksRec++;
             } else {
-                $('#square').css('background-color', '#F4F4F4');
-                $('.rectangle').toggleClass('hidden');
-                clicks--;
+                $('#square').css('background-color', '#f4f4f4');
+                clicksRec--;
             }
+        });
 
+        $('#circle').click(function() {
+            $('.circle').toggle();
+            if (clicksCir == 0) {
+                $('#circle').css('background-color', 'gray');
+                clicksCir++;
+            } else {
+                $('#circle').css('background-color', '#f4f4f4');
+                clicksCir--;
+            }
+        });
 
+        $('#line').click(function() {
+            $('.line').toggle();
+            if (clicksLine == 0) {
+                $('#line').css('background-color', 'gray');
+                clicksLine++;
+            } else {
+                $('#line').css('background-color', '#f4f4f4');
+                clicksLine--;
+            }
         });
     }
+
 
     var controllers = function() {
         $('.rectangle').attr('id', 'draggable');
         $('.rectangle').draggable();
         $('.rectangle').attr('id', 'resizable');
         $('.rectangle').resizable();
+
+        $('.circle').attr('id', 'draggable');
+        $('.circle').draggable();
+        $('.circle').attr('id', 'resizable');
+        $('.circle').resizable();
+
+        $('.line').attr('id', 'draggable');
+        $('.line').draggable();
+        $('.line').attr('id', 'resizable');
+        $('.line').resizable();
 
         var rotation = 0;
 
@@ -489,131 +588,146 @@ AppName.Modules.ThemeModule = (function() {
 
         $('#rotateRight').click(function() {
             rotation += 5;
-            $('.rectangle').rotate(rotation);
+            $('.shape').rotate(rotation);
         });
 
         $('#rotateLeft').click(function() {
             rotation -= 5;
-            $('.rectangle').rotate(rotation);
+            $('.shape').rotate(rotation);
         });
 
-        (function(e) {
-            function t() {
-                var e = document.createElement("p");
-                var t = false;
-                if (e.addEventListener) e.addEventListener("DOMAttrModified", function() { t = true }, false);
-                else if (e.attachEvent) e.attachEvent("onDOMAttrModified", function() { t = true });
-                else return false;
-                e.setAttribute("id", "target");
-                return t
-            }
-
-            function n(t, n) {
-                if (t) {
-                    var r = this.data("attr-old-value");
-                    if (n.attributeName.indexOf("style") >= 0) {
-                        if (!r["style"]) r["style"] = {};
-                        var i = n.attributeName.split(".");
-                        n.attributeName = i[0];
-                        n.oldValue = r["style"][i[1]];
-                        n.newValue = i[1] + ":" + this.prop("style")[e.camelCase(i[1])];
-                        r["style"][i[1]] = n.newValue
-                    } else {
-                        n.oldValue = r[n.attributeName];
-                        n.newValue = this.attr(n.attributeName);
-                        r[n.attributeName] = n.newValue
-                    }
-                    this.data("attr-old-value", r)
-                }
-            }
-            var r = window.MutationObserver || window.WebKitMutationObserver;
-            e.fn.attrchange = function(i) {
-                var s = { trackValues: false, callback: e.noop };
-                if (typeof i === "function") { s.callback = i } else { e.extend(s, i) }
-                if (s.trackValues) {
-                    e(this).each(function(t, n) {
-                        var r = {};
-                        for (var i, t = 0, s = n.attributes, o = s.length; t < o; t++) {
-                            i = s.item(t);
-                            r[i.nodeName] = i.value
-                        }
-                        e(this).data("attr-old-value", r)
-                    })
-                }
-                if (r) {
-                    var o = { subtree: false, attributes: true, attributeOldValue: s.trackValues };
-                    var u = new r(function(t) {
-                        t.forEach(function(t) {
-                            var n = t.target;
-                            if (s.trackValues) { t.newValue = e(n).attr(t.attributeName) }
-                            s.callback.call(n, t)
-                        })
-                    });
-                    return this.each(function() { u.observe(this, o) })
-                } else if (t()) {
-                    return this.on("DOMAttrModified", function(e) {
-                        if (e.originalEvent) e = e.originalEvent;
-                        e.attributeName = e.attrName;
-                        e.oldValue = e.prevValue;
-                        s.callback.call(this, e)
-                    })
-                } else if ("onpropertychange" in document.body) {
-                    return this.on("propertychange", function(t) {
-                        t.attributeName = window.event.propertyName;
-                        n.call(e(this), s.trackValues, t);
-                        s.callback.call(this, t)
-                    })
-                }
-                return this
-            }
-        })(jQuery)
-    }
-
-    var computation = function() {
-
-
-
-        var imgHeight = 768; //image file height
-        var imgWidth = 1024; //image file width
-        var focalLength = 25;
-        var sensorHeight = 4.56;
-        var distance = 1; //distance of drone from the ground
-        var actualHeight = 1000; //height of assumed reference
-        var objectHeight = 0; //height of object in canvas
-        var pixelPerMetric = 0; //for every __ px there will be __ inch
-
-        objectHeight = (focalLength * actualHeight * imgHeight) / (distance * sensorHeight);
-        pixelPerMetric = objectHeight / actualHeight;
-
-        $(function() {
-            var prevHeight = $('#test').height();
-            $('.rectangle').attrchange({
-                callback: function(e) {
-                    var curHeight = $(this).height();
-                    if (prevHeight !== curHeight) {
-                        prevHeight = curHeight;
-                    }
-                }
-            }).resizable();
+        $('#rotateRightCirc').click(function() {
+            rotation += 5;
+            $('.circle').rotate(rotation);
         });
 
-
-
-
+        $('#rotateLeftCirc').click(function() {
+            rotation -= 5;
+            $('.circle').rotate(rotation);
+        });
     }
 
-    /////////////////////
-    // Public Methods //
-    ///////////////////
+    var sizeListener = function() {
+            var ppmWidth = 0;
+            var ppmHeight = 0;
+            var elevation = 0;
+
+            (function($) {
+                var rectangleHeight = 0;
+                var rectangleWidth = 0;
+                $('#elevation').change(function() {
+                    elevation = $('#elevation').val();
+                    console.log(elevation);
+
+                    if (elevation == 2) {
+                        ppmWidth = 419.0476;
+                        ppmHeight = 424.2424;
+                    }
+                    if (elevation == 3) {
+                        pmWidth = 205.3410;
+                        ppmHeight = 208.1321;
+                    }
+                    if (elevation == 4) {
+                        pmWidth = 200;
+                        ppmHeight = 206.92;
+                    }
+                    if (elevation == 5) {
+                        pmWidth = 161.9048;
+                        ppmHeight = 148.1481;
+                    }
+                    if (elevation == 6) {
+                        pmWidth = 133.3333;
+                        ppmHeight = 161.6161;
+                    }
+                    if (elevation == 7) {
+                        pmWidth = 123.8095;
+                        ppmHeight = 121.2121;
+                    }
+                    if (elevation == 8) {
+                        ppmWidth = 100;
+                        ppmHeight = 103.46;
+                    }
+                    if (elevation == 10) {
+                        ppmWidth = 80.9524;
+                        ppmHeight = 74.0741;
+                    }
+                    if (elevation == 12) {
+                        pmWidth = 66.6665;
+                        ppmHeight = 68.9733;
+                    }
+                    if (elevation == 16) {
+                        ppmWidth = 50.0125;
+                        ppmHeight = 51.73;
+                    }
+                    if (elevation == 24) {
+                        pmWidth = 33.3333;
+                        ppmHeight = 40.4041;
+                    }
+                    if (elevation == 32) {
+                        ppmWidth = 25;
+                        ppmHeight = 25.865;
+                    }
+                });
+
+                $(".rectangle").on("mresize", function() {
+                    rectangleHeight = $(this).height();
+                    rectangleWidth = $(this).width();
+                    console.log("HEIGHT: " + rectangleHeight + "WIDTH: " + rectangleWidth);
+
+                    var areaRec = 0;
+
+                    var finalRecWidth = rectangleWidth / ppmWidth;
+                    var finalRecHeight = rectangleHeight / ppmHeight;
+
+                    areaRec = finalRecWidth * finalRecHeight;
+                    var squared = "2";
+                    $('#areaValue').text(areaRec.toFixed(2));
+                    // $('#areaTotal').text(areaRec.toFixed(3));
+                    console.log(areaRec.toFixed(2));
+                }).each(function() {
+                    $(this).data("mresize").throttle = 0;
+                });
+
+                $(".circle").on("mresize", function() {
+                    var circleHeight = $(this).height();
+                    var circleWidth = $(this).width();
+
+                    var areaCir = 0;
+
+                    var finalCirWidth = (circleWidth / 2) / ppmWidth;
+                    var finalCirHeight = (circleHeight / 2) / ppmHeight;
+
+                    areaCir = 3.14 * finalCirWidth * finalCirHeight;
+                    var squared = "2";
+                    $('#areaValueCirc').text(areaCir.toFixed(2));
+                }).each(function() {
+                    $(this).data("mresize").throttle = 0;
+                });
+
+                $(".line").on("mresize", function() {
+                    var lineHeight = $(this).height();
+                    var lineWidth = $(this).width();
+
+                    var finalLineWidth = lineWidth / ppmWidth;
+                    var finalLineHeight = lineHeight / ppmHeight;
+
+
+                    $('#l-height').text(finalLineHeight.toFixed(2) + "m");
+                    $('#l-width').text(finalLineWidth.toFixed(2) + "m");
+                }).each(function() {
+                    $(this).data("mresize").throttle = 0;
+                });
+            })(jQuery);
+        }
+        /////////////////////
+        // Public Methods //
+        ///////////////////
     var init = function() {
         matchHeight();
         screenLoader();
         owlCarouselBottom();
-        useImage();
-        removeBox();
-        // square();
-        // circle();
-        closeImg();
+        // useImage();
+        // closeImg();
         popover();
         focus();
         menu();
@@ -621,9 +735,10 @@ AppName.Modules.ThemeModule = (function() {
         code();
         inputFile();
         // openImage();
-        showRectangle();
+        // closeImage();
+        showShapes();
         controllers();
-        computation();
+        sizeListener();
     };
 
     var resize = function() {
